@@ -5,7 +5,7 @@ import CardList from './components/CardList';
 
 const App = () => {
     const [friends, setFriends] = useState([]);
-    const [searchfield, setSearchfield] = useState('');
+    const [searchedValue, setSearchedValue] = useState('');
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -14,13 +14,13 @@ const App = () => {
     }, []);
 
     const onSearchChange = event => {
-        setSearchfield(event.target.value);
+        setSearchedValue(event.target.value);
     };
 
     const filteredFriends = friends.filter(
         friend =>
-            friend.username.toLowerCase().includes(searchfield.toLowerCase()) ||
-            friend.name.toLowerCase().includes(searchfield.toLowerCase())
+            friend.username.toLowerCase().includes(searchedValue.toLowerCase()) ||
+            friend.name.toLowerCase().includes(searchedValue.toLowerCase())
     );
     if (friends.length === 0) {
         return <h1 className="tc calisto f2 light-blue">Loading</h1>;
