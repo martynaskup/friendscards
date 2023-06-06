@@ -2,10 +2,10 @@ import React from "react";
 import Card from "./Card";
 
 const CardList = ({ friends }) => {
-  const cardsArray = friends.map((friend, i) => {
+  const cardsArray = friends.map((friend) => {
     return (
       <Card
-        key={i}
+        key={friend.id}
         id={friend.id}
         username={friend.username}
         name={friend.name}
